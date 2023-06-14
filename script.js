@@ -22,6 +22,7 @@ function game() {
     }
 
     // determine the winner
+    console.log("Final round played. Determining the winner...");
     if (playerScore > computerScore) {
         console.log("You win!");
     }
