@@ -1,4 +1,4 @@
-# rock-paper-scissors
+# Rock, Paper, Scissors
 First JavaScript Basics project for The Odin Project's Foundation Course.
 
 The game will be played against the computer, which will randomly choose either Rock, Paper or Scissors. 
