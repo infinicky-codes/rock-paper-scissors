@@ -25,13 +25,14 @@ function game() {
     // determine the winner
     console.log("Final round played. Determining the winner...");
     if (playerScore > computerScore) {
-        console.log("You win!");
+        console.log("You win! You beat the computer by " + (playerScore - computerScore) + " points.");
     }
     else if (playerScore < computerScore) {
-        console.log("You lose!");
+        console.log("You lose by " + (computerScore - playerScore) + " points.");
+        console.log("Better luck next time!");
     }
     else {
-        console.log("It's a tie!");
+        console.log("It's a tie! You both have " + playerScore + " points.");
     }
 }
 
