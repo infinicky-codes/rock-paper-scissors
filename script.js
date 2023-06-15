@@ -1,13 +1,14 @@
+// keep track of the player's score
+let playerScore = 0;
+// keep track of the computer's score
+let computerScore = 0;
+
 game();
 
 // Function that plays 5 rounds of Rock Paper Scissors
 function game() {
     // keep track of the round number
     let round = 1;
-    // keep track of the player's score
-    let playerScore = 0;
-    // keep track of the computer's score
-    let computerScore = 0;
     
     // play 5 rounds
     while (round <= 5) {        
@@ -84,9 +85,11 @@ function playRound(playerSelection, computerSelection) {
     // return the result of the round
     if (playerWins) {
         return "You win! " + playerSelection + " beats " + computerSelection;
+        playerScore++;
     }
     else {
         return "You lose! " + computerSelection + " beats " + playerSelection;
+        computerScore++;
     }
 }
 
