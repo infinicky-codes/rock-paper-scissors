@@ -84,12 +84,12 @@ function playRound(playerSelection, computerSelection) {
 
     // return the result of the round
     if (playerWins) {
-        return "You win! " + playerSelection + " beats " + computerSelection;
         playerScore++;
+        return "You win! " + playerSelection + " beats " + computerSelection;
     }
     else {
-        return "You lose! " + computerSelection + " beats " + playerSelection;
         computerScore++;
+        return "You lose! " + computerSelection + " beats " + playerSelection;
     }
 }
 
