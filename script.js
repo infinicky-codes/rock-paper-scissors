@@ -36,22 +36,12 @@ function game() {
 
 // Get player and Computer selections 
 function getSelections() {
-    // const rockChoice = document.querySelector('#rock');
-    // const paperChoice = document.querySelector('#paper');
-    // const scissorsChoice = document.querySelector('#scissors');
+    // // get the player's selection
+    const selections = document.querySelectorAll('button');
 
-    // rockChoice.addEventListener('click', () => console.log(playRound('Rock', getComputerSelection())));
-    // paperChoice.addEventListener('click', () => console.log(playRound('Paper', getComputerSelection())));
-    // scissorsChoice.addEventListener('click', () => console.log(playRound('Scissors', getComputerSelection())));
-
-    // ALTERNATIVE //
-
-    // // get the player's choice
-    const choices = document.querySelectorAll('button');
-
-    choices.forEach(choice => {
-        choice.addEventListener('click', () => 
-            console.log(playRound(choice.id, getComputerSelection())));
+    selections.forEach(selection => {
+        selection.addEventListener('click', () => 
+            console.log(playRound(selection.id, getComputerSelection())));
     });
 }
 
