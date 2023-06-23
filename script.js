@@ -36,33 +36,29 @@ function game() {
 
 // Get player and Computer selections 
 function getSelections() {
-    let selection = '';
+    // const rockChoice = document.querySelector('#rock');
+    // const paperChoice = document.querySelector('#paper');
+    // const scissorsChoice = document.querySelector('#scissors');
 
-    const rockChoice = document.querySelector('#rock');
-    const paperChoice = document.querySelector('#paper');
-    const scissorsChoice = document.querySelector('#scissors');
-
-    rockChoice.addEventListener('click', () => console.log(playRound('Rock', getComputerSelection())));
-    paperChoice.addEventListener('click', () => console.log(playRound('Paper', getComputerSelection())));
-    scissorsChoice.addEventListener('click', () => console.log(playRound('Scissors', getComputerSelection())));
+    // rockChoice.addEventListener('click', () => console.log(playRound('Rock', getComputerSelection())));
+    // paperChoice.addEventListener('click', () => console.log(playRound('Paper', getComputerSelection())));
+    // scissorsChoice.addEventListener('click', () => console.log(playRound('Scissors', getComputerSelection())));
 
     // ALTERNATIVE //
 
-    // let selection = '';
     // // get the player's choice
-    // const choices = document.querySelectorAll('button');
+    const choices = document.querySelectorAll('button');
 
-    // choices.forEach(choice => {
-    //     choice.addEventListener('click', () => 
-    //         selection = choice.id);
-    // });
+    choices.forEach(choice => {
+        choice.addEventListener('click', () => 
+            console.log(playRound(choice.id, getComputerSelection())));
+    });
 }
 
 // Single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
-    // make playerSelection and computerSelection case insensitive
-    // playerSelection = playerSelection.toLowerCase();
-    // computerSelection = computerSelection.toLowerCase();
+    // Match playerSelection and computerSelection cases
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);    // computerSelection = computerSelection.toLowerCase();
 
     let playerWins = false;
 
@@ -100,10 +96,6 @@ function playRound(playerSelection, computerSelection) {
             }
             break;            
     }
-
-    // capitalize the first letter of the selections
-    // playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    // computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
     // return the result of the round
     if (playerWins) {
