@@ -3,34 +3,22 @@ let playerScore = 0;
 // Keep track of the computer's score
 let computerScore = 0;
 
-// Play
-//game();
+// Wait for the player to choose something
+getSelections();
 
 // Function that plays 5 rounds of Rock Paper Scissors
 function game() {
     // keep track of the round number
     let round = 1;
-    
-    // play 5 rounds
-    while (round <= 5) {        
-        // get the player's choice
-        let selection = '';
-        const choices = document.querySelectorAll('button');
 
-        choices.forEach(choice => {
-            choice.addEventListener('click', () => 
-                selection = choice.id);
-        });
-        console.log(selection);
-            
-        let playerSelection = selection;
-        // get the computer's choice
-        let computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        // play a round and log the result
-        console.log(playRound(playerSelection, computerSelection));
-        round++;
-    }
+    // play 5 rounds
+    // while (round <= 5) {        
+    //     // get the computer's choice
+    //     let computerSelection = getComputerSelection();
+    //     // play a round and log the result
+    //     console.log(playRound(playerSelection, computerSelection));
+    //     round++;
+    // }
 
     // determine the winner
     console.log("Final round played. Determining the winner...");
@@ -46,21 +34,17 @@ function game() {
     }
 }
 
-// Wait for the player to select a choice
-function getSelection() {
+// Get player and Computer selections 
+function getSelections() {
     let selection = '';
 
     const rockChoice = document.querySelector('#rock');
     const paperChoice = document.querySelector('#paper');
     const scissorsChoice = document.querySelector('#scissors');
 
-    rockChoice.addEventListener('click', () => selection = 'Rock');
-    paperChoice.addEventListener('click', () => selection = 'Paper');
-    scissorsChoice.addEventListener('click', () => selection = 'Scissors');
-    
-    if (selection !== '') {
-        return selection;
-    }
+    rockChoice.addEventListener('click', () => console.log(playRound('Rock', getComputerSelection())));
+    paperChoice.addEventListener('click', () => console.log(playRound('Paper', getComputerSelection())));
+    scissorsChoice.addEventListener('click', () => console.log(playRound('Scissors', getComputerSelection())));
 
     // ALTERNATIVE //
 
@@ -134,7 +118,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 // Function that returns either ‘Rock’, ‘Paper’ or ‘Scissors’
-function getComputerChoice() {
+function getComputerSelection() {
     // get a random number between 0 and 2
     let randomNumber = Math.floor(Math.random() * 3);
     // return the computer's choice
