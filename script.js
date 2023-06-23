@@ -1,9 +1,10 @@
-// keep track of the player's score
+// Keep track of the player's score
 let playerScore = 0;
-// keep track of the computer's score
+// Keep track of the computer's score
 let computerScore = 0;
 
-game();
+// Play
+//game();
 
 // Function that plays 5 rounds of Rock Paper Scissors
 function game() {
@@ -13,10 +14,19 @@ function game() {
     // play 5 rounds
     while (round <= 5) {        
         // get the player's choice
-        let playerSelection = prompt("Rock, paper, or scissors?");
+        let selection = '';
+        const choices = document.querySelectorAll('button');
+
+        choices.forEach(choice => {
+            choice.addEventListener('click', () => 
+                selection = choice.id);
+        });
+        console.log(selection);
+            
+        let playerSelection = selection;
         // get the computer's choice
         let computerSelection = getComputerChoice();
-        
+        console.log(computerSelection);
         // play a round and log the result
         console.log(playRound(playerSelection, computerSelection));
         round++;
@@ -36,11 +46,39 @@ function game() {
     }
 }
 
+// Wait for the player to select a choice
+function getSelection() {
+    let selection = '';
+
+    const rockChoice = document.querySelector('#rock');
+    const paperChoice = document.querySelector('#paper');
+    const scissorsChoice = document.querySelector('#scissors');
+
+    rockChoice.addEventListener('click', () => selection = 'Rock');
+    paperChoice.addEventListener('click', () => selection = 'Paper');
+    scissorsChoice.addEventListener('click', () => selection = 'Scissors');
+    
+    if (selection !== '') {
+        return selection;
+    }
+
+    // ALTERNATIVE //
+
+    // let selection = '';
+    // // get the player's choice
+    // const choices = document.querySelectorAll('button');
+
+    // choices.forEach(choice => {
+    //     choice.addEventListener('click', () => 
+    //         selection = choice.id);
+    // });
+}
+
 // Single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
     // make playerSelection and computerSelection case insensitive
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+    // playerSelection = playerSelection.toLowerCase();
+    // computerSelection = computerSelection.toLowerCase();
 
     let playerWins = false;
 
@@ -51,8 +89,8 @@ function playRound(playerSelection, computerSelection) {
     
     // rock beats scissors
     switch (playerSelection) {
-        case "rock":
-            if (computerSelection === "scissors") {
+        case "Rock":
+            if (computerSelection === "Scissors") {
                 playerWins = true;
             }
             else {
@@ -60,8 +98,8 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
         // paper beats rock
-        case "paper":
-            if (computerSelection === "rock") {
+        case "Paper":
+            if (computerSelection === "Rock") {
                 playerWins = true;
             }
             else {
@@ -69,8 +107,8 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
         // scissors beat paper
-        case "scissors":
-            if (computerSelection === "paper") {
+        case "Scissors":
+            if (computerSelection === "Paper") {
                 playerWins = true;
             }
             else {
@@ -80,8 +118,8 @@ function playRound(playerSelection, computerSelection) {
     }
 
     // capitalize the first letter of the selections
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+    // playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    // computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
     // return the result of the round
     if (playerWins) {
