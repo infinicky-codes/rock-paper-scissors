@@ -1,3 +1,16 @@
+// TODO //
+
+// Refactor playRound
+// Make elements show and disappear again
+// Less global variables
+
+
+
+
+
+
+
+
 // Keep track of the player's score
 let playerScore = 0;
 // Keep track of the computer's score
